@@ -7,6 +7,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     EditText first, second;
@@ -30,13 +31,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view)
     {
+        if(first.getText().toString().length() == 0 || second.getText().toString().length() == 0)
+        {
+            Toast.makeText(this,"נא למלא את כל הפרטים", Toast.LENGTH_LONG).show();
+        }
         if(view == save)
         {
             fullName.setText(first.getText().toString() + " " + second.getText().toString());
             first.setText("");
             second.setText("");
-
         }
+
+
 
 
 
